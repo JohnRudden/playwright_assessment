@@ -27,3 +27,9 @@
 12. An assumtion has been made, for the naviation check success assertion that most of the pages will have a H1 heading for the partiular topic (except for Home page)
 13. Assuming tools like Prettier and linting are out of scope
 14. The steps are currently contains in one file (Given, When, Then) - would consider splitting these into separate files for clarity but will leave for now
+
+# Feature: Basic Search notes
+
+# Feature: Naviagte to a specific link notes
+
+# Feature: Browsing by collection
