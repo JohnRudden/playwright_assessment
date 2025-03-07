@@ -21,7 +21,9 @@
     - testing user visible behaviour (using playwrights getBy locators where possible)
     - isolated tests
     - Using web first assertions which will autowait
+    - Follow DRY principles
 
 11. There will be cases where I will have two simlar steps - such as the search box in the header or main page but will try and refine this down to options in one step (time permitting)
 12. An assumtion has been made, for the naviation check success assertion that most of the pages will have a H1 heading for the partiular topic (except for Home page)
-13. Assuming Prettier and linting are out of scope due to time
+13. Assuming tools like Prettier and linting are out of scope
+14. The steps are currently contains in one file (Given, When, Then) - would consider splitting these into separate files for clarity but will leave for now
