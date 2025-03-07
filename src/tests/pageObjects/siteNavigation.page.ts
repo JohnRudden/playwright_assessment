@@ -58,6 +58,14 @@ async mainMenuNavigation(menu: string, inputDevice: string, ) {
     focused = await menuLocator.evaluate((el) => document.activeElement === el)
     }
   }
-
 }
+
+// open menu
+async openMenuItem(menuItem: string, inputDevice: string) {
+  if (inputDevice==="keyboard") {
+  await this.page.keyboard.press('Enter');
+    } else {
+      await this.page.getByRole('button', { name: `${menuItem}` }).click();
+    }
+  }
 }
