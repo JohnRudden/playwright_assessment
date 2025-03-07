@@ -27,17 +27,11 @@ When('the open search button is pressed' , async({header}) => {
 
 // Used in feature 2
 
-When('the user has navigated to {string} using a {string}', async ({siteNavigation}, item:string, inputDevice: string) => {
- await siteNavigation.mainMenuNavigation(item, inputDevice);
+When('the user selects the {string} level menu option {string} using a {string}', async ({siteNavigation}, level: string, item:string, inputDevice: string) => {
+ await siteNavigation.selectMenuOption(level, item, inputDevice);
 });
 
-When('the user opens menu item {string} using a {string}', async ({siteNavigation}, inputDevice: string, menuItem: string) => {
-  await siteNavigation.openMenuItem(inputDevice, menuItem);
-});
 
-When('the user selects the link {string} using a {string}', async ({siteNavigation}, menuItem: string, inputDevice: string,) => {
-  await siteNavigation.selectMenuLink(menuItem, inputDevice )
-});
 
 // When('the user navigates to a <timeline item> using a <inputDevice>', async ({}) => {
 //   // Step: When the user navigates to a <timeline item> using a <inputDevice>
