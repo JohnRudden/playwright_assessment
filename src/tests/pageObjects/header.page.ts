@@ -26,15 +26,15 @@ async openSearchBox() {
 };
 }
 
-
 async enterSearchTerm(searchTerm: string) {
   await this.searchInputText.fill(searchTerm)
 };
 
-
 async applySearch() { 
   await this.applySearchBtn.click();
-  console.log(this.page.url())
-  await this.page.waitForURL(/documents\?returning=true/) // use regex to check for url path
+}
+
+async verifyUrl(text: string) {
+  expect(this.page.url()).toContain(text) 
 }
 }

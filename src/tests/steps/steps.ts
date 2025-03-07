@@ -15,8 +15,12 @@ When('the user enters the text {string} in the basic input search box in the hea
   await header.enterSearchTerm(arg);
 });
 
-When('the search button is pressed' , async({header}) => {
+When('the apply search button is pressed' , async({header}) => {
   await header.applySearch();
+})
+
+When('the open search button is pressed' , async({header}) => {
+  await header.openSearchBox();
 })
 
 
@@ -26,11 +30,19 @@ Then("the user is navigated to the {string} page", async({siteNavigation, baseUR
  await siteNavigation.checkSuccess(baseURL = "", arg1)
 })
 
+Then("the url contains the text {string}", async({header}, text: string) => {
+  await header.verifyUrl(text);
+});
+
 Then('the {string} page of search results is displayed', async ({documents}, pageNumberToCheck: string) => {
  await documents.verifyDisplayedPageNumber(pageNumberToCheck);
 });
 
 Then('the {string} meets the search criteria', async ({documents}, criteria: string) => {
-  await documents.validateSearchResults(criteria)
+  await documents.validateSearchResults(criteria);
+});
+
+Then('an alert message appears with the text {string}', async ({toastMessage}, msg: string) => {
+ await toastMessage.validateMessage(msg);
 });
 
