@@ -35,10 +35,9 @@ When('the user opens menu item {string} using a {string}', async ({siteNavigatio
   await siteNavigation.openMenuItem(inputDevice, menuItem);
 });
 
-// When('the user selects the <Menu Option> using a <inputDevice>', async ({}) => {
-//   // Step: And the user selects the <Menu Option> using a <inputDevice>
-//   // From: src\tests\features\navigateToSpecificLink.feature:9:5
-// });
+When('the user selects the link {string} using a {string}', async ({siteNavigation}, menuItem: string, inputDevice: string,) => {
+  await siteNavigation.selectMenuLink(menuItem, inputDevice )
+});
 
 // When('the user navigates to a <timeline item> using a <inputDevice>', async ({}) => {
 //   // Step: When the user navigates to a <timeline item> using a <inputDevice>

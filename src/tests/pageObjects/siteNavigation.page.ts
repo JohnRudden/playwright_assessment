@@ -50,22 +50,46 @@ async checkSuccess(baseURL: string, arg1: string) {
 
 // navigate to a main menu iten using either a mouse or keyboard
 async mainMenuNavigation(menu: string, inputDevice: string, ) {
+  const menuLocator = this.page. getByRole('button', { name: `${menu}` })
   if (inputDevice==="keyboard") {
-    const menuLocator = this.page. getByRole('button', { name: `${menu}` })
     let focused = false;
     while (!focused) {
     await this.page.keyboard.press('Tab');
     focused = await menuLocator.evaluate((el) => document.activeElement === el)
+    } 
+    } else {
+      await menuLocator.hover();
     }
   }
-}
+
 
 // open menu
 async openMenuItem(menuItem: string, inputDevice: string) {
   if (inputDevice==="keyboard") {
   await this.page.keyboard.press('Enter');
     } else {
-      await this.page.getByRole('button', { name: `${menuItem}` }).click();
+      // await this.page.getByRole('button', { name: `${menuItem}` }).click();
+      await this.page.getByText(menuItem).first().click();
     }
   }
+
+// select link
+async selectMenuLink(menuItem: string, inputDevice: string) {
+  const menuLocator = this.page.getByRole('link', { name: menuItem});
+  console.log(await menuLocator.textContent());
+  console.log("Input device =", inputDevice);
+  console.log("Menu items is ", menuItem);
+  let focused = false;
+  if (inputDevice==="keyboard") {
+    while (!focused) {
+    await this.page.keyboard.press('Tab');
+    focused = await menuLocator.evaluate((el) => document.activeElement === el);
+    console.log(focused)
+    }
+    await this.page.keyboard.press('Enter');
+  } else {
+    await menuLocator.click();
+  }
+
+}
 }
