@@ -10,6 +10,8 @@ Given('the user is on the {string} page of the Quartex Published Site', async ({
 
 //  **** WHEN steps ****
 
+// Used in Feature 1
+
 When('the user enters the text {string} in the basic input search box in the header', async ({header}, arg: string = "") => {
   await header.openSearchBox();
   await header.enterSearchTerm(arg);
@@ -22,6 +24,37 @@ When('the apply search button is pressed' , async({header}) => {
 When('the open search button is pressed' , async({header}) => {
   await header.openSearchBox();
 })
+
+// Used in feature 2
+
+When('the user has navigated to {string} using a {string}', async ({siteNavigation}, item:string, inputDevice: string) => {
+ await siteNavigation.mainMenuNavigation(item, inputDevice);
+});
+
+// When('the user opens the <Menu> using a <inputDevice>', async ({}) => {
+//   // Step: And the user opens the <Menu> using a <inputDevice>
+//   // From: src\tests\features\navigateToSpecificLink.feature:8:5
+// });
+
+// When('the user selects the <Menu Option> using a <inputDevice>', async ({}) => {
+//   // Step: And the user selects the <Menu Option> using a <inputDevice>
+//   // From: src\tests\features\navigateToSpecificLink.feature:9:5
+// });
+
+// When('the user navigates to a <timeline item> using a <inputDevice>', async ({}) => {
+//   // Step: When the user navigates to a <timeline item> using a <inputDevice>
+//   // From: src\tests\features\navigateToSpecificLink.feature:10:5
+// });
+
+// When('the user selects the link <link> using a <inputDevice>', async ({}) => {
+//   // Step: And the user selects the link <link> using a <inputDevice>
+//   // From: src\tests\features\navigateToSpecificLink.feature:11:5
+// });
+
+// Then('the correct <web page> is launched in a new tab', async ({}, dataTable: DataTable) => {
+//   // Step: Then the correct <web page> is launched in a new tab
+//   // From: src\tests\features\navigateToSpecificLink.feature:12:5
+// });
 
 
 //  **** THEN steps ****

@@ -47,4 +47,17 @@ async checkSuccess(baseURL: string, arg1: string) {
    await expect(this.page.getByRole("heading", { name: arg1 })).toBeVisible();
   }
 }
+
+// navigate to a main menu iten using either a mouse or keyboard
+async mainMenuNavigation(menu: string, inputDevice: string, ) {
+  if (inputDevice==="keyboard") {
+    const menuLocator = this.page. getByRole('button', { name: `${menu}` })
+    let focused = false;
+    while (!focused) {
+    await this.page.keyboard.press('Tab');
+    focused = await menuLocator.evaluate((el) => document.activeElement === el)
+    }
+  }
+
+}
 }

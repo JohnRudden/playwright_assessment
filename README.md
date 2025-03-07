@@ -30,6 +30,15 @@
 
 # Feature: Basic Search notes
 
-# Feature: Naviagte to a specific link notes
+    Items not done but would consider in a future update:
+    1.  Focused on the search box in the header, but will a little bit of effort a generic search function could be created and an option of header or main page search could be passed
+        so that either search box could be checked with minimal code effort - making a generic search page object perhaps
+    2.  Mocking of results using playwright api mocking feature
+
+# Feature: Navigate to a specific link notes
+
+    As the site can use both keyboard or mouse I want to include that as an option for navigating using a single function but passing in an argument of inputDevice in a step.
+    The aim is to use the "Tab" and "Enter" keys to navigate down to the menu item (evaluating when each item is in focus) and the selecting the correct option
+    Of course a simpler method would have been to go directly to the Timeline content block URL but that would not test the UI
 
 # Feature: Browsing by collection
