@@ -48,7 +48,7 @@ async checkSuccess(baseURL: string, arg1: string) {
   }
 }
 
-// navigate to a main menu iten using either a mouse or keyboard
+// navigate to a menu option either at the top level or a sub level using either a mouse or keyboard
 async selectMenuOption(level: string, menu: string, inputDevice: string, ) {
   const menuLocator = level === "top" ? this.page.getByRole('button', { name: `${menu}` }) : this.page.getByRole('link', { name: menu});
   if (inputDevice==="keyboard") {
