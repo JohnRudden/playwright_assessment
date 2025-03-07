@@ -31,6 +31,11 @@ When('the user selects the {string} level menu option {string} using a {string}'
  await siteNavigation.selectMenuOption(level, item, inputDevice);
 });
 
+When('the user scrolls to a {string} using a {string}', async ({}, arg: string, arg1: string) => {
+  // Step: When the user scrolls to a "<timeline item>" using a "keyboard"
+  // From: src\tests\features\navigateToSpecificLink.feature:9:5
+});
+
 
 
 // When('the user navigates to a <timeline item> using a <inputDevice>', async ({}) => {

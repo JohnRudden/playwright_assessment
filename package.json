@@ -1,4 +1,9 @@
+
+
 {
+  "scripts": {
+    "test" : "npx bddgen && npx playwright test"
+  },
   "devDependencies": {
     "@playwright/test": "^1.50.1",
     "@types/node": "^22.13.9",
