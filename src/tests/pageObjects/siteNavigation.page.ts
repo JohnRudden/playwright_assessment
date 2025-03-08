@@ -13,7 +13,7 @@ export default class SiteNavigation {
 
 // actions
 
-// Accept cookies if visible
+// **** Accept cookies if visible ****
 async acceptCookies() {
   const cookieAccept = this.cookieAcceptBtn;
   if (await cookieAccept.isVisible()) {
@@ -21,7 +21,7 @@ async acceptCookies() {
   }
 }
 
-// go to to any page specified specified in the argument
+// **** Go to to any page specified specified in the argument ****
 async goto(page : string = "") {
   const targetPage = page === "homepage" ? "" : page;
   await this.page.goto(`/${targetPage}`);
@@ -29,7 +29,7 @@ async goto(page : string = "") {
   await this.acceptCookies();
 };
 
-//assert navigated to the correct page
+// ****Assert page navigation ****
 async checkSuccess(baseURL: string, arg1: string) {
     const currentUrl = this.page.url();
     let assertURL: string = baseURL ? baseURL : "https://demo.quartexcollections.com/"
@@ -49,13 +49,13 @@ async checkSuccess(baseURL: string, arg1: string) {
   }
 }
 
-// navigate to a menu option in the site main menu using either a mouse or keyboard
+// **** Vavigate to a menu option in the Main Site Menu using either a mouse or keyboard ****
 async selectMenuOption(menu: string, inputDevice: string, browserName: string) {
   const menuLocator = menu === "Discovery Aids" ? this.siteMainMenu.getByRole('button', { name: `${menu}` }) : this.siteMainMenu.getByRole('link', { name: menu});
   await this.navigateToAndSelect( menuLocator , inputDevice, browserName);
 }
 
-// Scroll to an item using keyboard or mouse
+// **** Scroll to an item using keyboard or mouse ****
   async scrollToItem(item:string , inputDevice: string) {
     const elementToCheck = this.page.getByText(item);
     let isVisible = false
@@ -74,12 +74,12 @@ async selectMenuOption(menu: string, inputDevice: string, browserName: string) {
   }
   }
 
-// get any link by name
+// **** Get a link by any name ****
 async getLinkByName(linkName: string) {
   return this.page.getByRole('link', { name: linkName })
 }
 
-// use keyboard or mouse to navigate to an item and click it
+// **** Navigate to an item and select ****
 async navigateToAndSelect(itemLocator: Locator, inputDevice: string, browserName: string ) {
   if (inputDevice==="keyboard" && browserName != "webkit") {     // Tabs do not appear to be working as expected on Webkit (not going through the menu items)
     let focused = false;
@@ -94,7 +94,7 @@ async navigateToAndSelect(itemLocator: Locator, inputDevice: string, browserName
     }
 }
 
-// verifyURL
+// **** Verify URL on same page or new page ****
 async verifyCorrectURL(urlTocheck: string, newtabExpected: boolean) {
   if (newtabExpected) {
       const context = this.page.context();
