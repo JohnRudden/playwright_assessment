@@ -1,5 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-import { defineBddConfig } from 'playwright-bdd';
+import { defineBddConfig, cucumberReporter } from 'playwright-bdd';
 
 const testDir = defineBddConfig({
   featuresRoot: './src/tests/'
@@ -22,7 +22,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   // Reporter to use
-  reporter: 'html',
+  reporter: [cucumberReporter('html', { outputFile: 'cucumber-report/index.html' })],
 
   // Each test is given 60 seconds.
   timeout: 60000,
@@ -37,15 +37,15 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], screenshot: 'on', video: 'on'}, 
+      use: { ...devices['Desktop Chrome'], viewport: { width: 1920, height: 1080 }, screenshot: 'on', video: 'on'}, 
     },
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'], screenshot: 'on', video: 'on'},
+      use: { ...devices['Desktop Firefox'], viewport: { width: 1920, height: 1080 }, screenshot: 'on', video: 'on'},
     },
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'], deviceScaleFactor:1, screenshot: 'on', video: 'on'},
+      use: { ...devices['Desktop Safari'], deviceScaleFactor:1, viewport: { width: 1920, height: 1080 }, screenshot: 'on', video: 'on'},
     },
   ],
 });

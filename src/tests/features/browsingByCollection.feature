@@ -6,6 +6,6 @@ Feature: Browsing by Collection
     Given the user is on the "homepage" page of the Quartex Published Site
     When the user selects the menu option "<Menu>" using a "<inputDevice>"
     Examples:
-      |Menu                     | inputDevice |
-      |Explore the Collections  | keyboard    |
-      |Explore the Collections  | mouse       |
+      |Menu                     | inputDevice | Letter | Collection   |
+      |Explore the Collections  | keyboard    | W      |War & Conflict|
+      |Explore the Collections  | mouse       | W      |War & Conflict|
