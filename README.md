@@ -15,7 +15,7 @@
 6. It would be possible to use 'decorators' for the 'Given, When, Then' steps in the page object but to simplify and aid readability will use separates steps file instead
 7. Will try to leave more of the assertions within the 'Then' steps but some basic checks may be done in 'Given' setup state steps
 8. Will screen shot on failure and retain video
-9. Will set retires to 1 for this initial pack (no flakey tests are the optimum desired result so will use the -x and --repeat-each options when running and testing the pack)
+9. Will strive for no flakey tests. Will use the -x and --repeat-each options when running and testing the pack
 10. Will follow best practices such as
 
     - testing user visible behaviour (using playwrights getBy locators where possible)
