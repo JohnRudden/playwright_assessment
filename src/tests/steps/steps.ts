@@ -27,8 +27,8 @@ When('the open search button is pressed' , async({header}) => {
 
 // Used in feature 2
 
-When('the user selects the {string} level menu option {string} using a {string}', async ({siteNavigation, browserName}, level: string, item:string, inputDevice: string) => {
- await siteNavigation.selectMenuOption(level, item, inputDevice, browserName);
+When('the user selects the menu option {string} using a {string}', async ({siteNavigation, browserName},item:string, inputDevice: string) => {
+ await siteNavigation.selectMenuOption(item, inputDevice, browserName);
 });
 
 When('the user scrolls to a {string} using a {string}', async ({siteNavigation}, item: string, inputDevice: string) => {

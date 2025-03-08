@@ -3,10 +3,12 @@ import {Locator, Page, expect} from '@playwright/test';
 export default class SiteNavigation { 
   readonly page : Page
   readonly cookieAcceptBtn: Locator
+  readonly siteMainMenu: Locator
 
   constructor(page: Page) {
     this.page = page
     this.cookieAcceptBtn = this.page.getByRole('button', {name: "dismiss cookie message"})
+    this.siteMainMenu = this.page.getByTestId('site-main-menu')
 }
 
 // actions
@@ -47,9 +49,9 @@ async checkSuccess(baseURL: string, arg1: string) {
   }
 }
 
-// navigate to a menu option either at the top level or a sub level using either a mouse or keyboard
-async selectMenuOption(level: string = "", menu: string, inputDevice: string, browserName: string) {
-  const menuLocator = level === "top" ? this.page.getByRole('button', { name: `${menu}` }) : this.page.getByRole('link', { name: menu});
+// navigate to a menu option in the site main menu using either a mouse or keyboard
+async selectMenuOption(menu: string, inputDevice: string, browserName: string) {
+  const menuLocator = menu === "Discovery Aids" ? this.siteMainMenu.getByRole('button', { name: `${menu}` }) : this.siteMainMenu.getByRole('link', { name: menu});
   await this.navigateToAndSelect( menuLocator , inputDevice, browserName);
 }
 

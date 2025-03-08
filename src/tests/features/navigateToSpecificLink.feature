@@ -4,8 +4,8 @@ Feature: Navigate to a specific link from a Timeline Content Block
 
   Scenario Outline: Navigate to a specific timeline block using the <inputDevice>
     Given the user is on the "homepage" page of the Quartex Published Site
-    When the user selects the "top" level menu option "<Menu>" using a "<inputDevice>"
-    And the user selects the "sub" level menu option "<Menu Option>" using a "<inputDevice>"
+    When the user selects the menu option "<Menu>" using a "<inputDevice>"
+    And the user selects the menu option "<Menu Option>" using a "<inputDevice>"
     When the user scrolls to a "<Timeline Item>" using a "<inputDevice>"
     And the user selects the link "<Link>" using a "<inputDevice>"
     Then the correct web page "<Web Page is Launched>" is launched in a new tab
