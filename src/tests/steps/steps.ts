@@ -8,8 +8,6 @@ Given('the user is on the {string} page of the Quartex Published Site', async ({
 });
 
 
-
-
 //  **** WHEN steps ****
 
 When('the user enters the text {string} in the basic input search box in the header', async ({header}, arg: string = "") => {
@@ -37,8 +35,6 @@ When('the user selects the link {string} using a {string}', async ({siteNavigati
   const link = await siteNavigation.getLinkByName(linkName);
   await siteNavigation.navigateToAndSelect(link, inputDevice, browserName);
 });
-
-
 
 
 //  **** THEN steps ****
