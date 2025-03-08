@@ -1,5 +1,6 @@
 import { Given, When, Then } from '../fixtures/fixtures';
 
+
 //  **** GIVEN steps ****
 
 Given('the user is on the {string} page of the Quartex Published Site', async ({siteNavigation}, arg : string) => {
@@ -8,9 +9,8 @@ Given('the user is on the {string} page of the Quartex Published Site', async ({
 
 
 
-//  **** WHEN steps ****
 
-// Used in Feature 1
+//  **** WHEN steps ****
 
 When('the user enters the text {string} in the basic input search box in the header', async ({header}, arg: string = "") => {
   await header.openSearchBox();
@@ -25,8 +25,6 @@ When('the open search button is pressed' , async({header}) => {
   await header.openSearchBox();
 })
 
-// Used in feature 2
-
 When('the user selects the menu option {string} using a {string}', async ({siteNavigation, browserName},item:string, inputDevice: string) => {
  await siteNavigation.selectMenuOption(item, inputDevice, browserName);
 });
@@ -39,6 +37,9 @@ When('the user selects the link {string} using a {string}', async ({siteNavigati
   const link = await siteNavigation.getLinkByName(linkName);
   await siteNavigation.navigateToAndSelect(link, inputDevice, browserName);
 });
+
+
+
 
 //  **** THEN steps ****
 
