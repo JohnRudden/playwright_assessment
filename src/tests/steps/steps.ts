@@ -31,8 +31,8 @@ When('the user selects the {string} level menu option {string} using a {string}'
  await siteNavigation.selectMenuOption(level, item, inputDevice, browserName);
 });
 
-When('the user scrolls to a {string} using a {string}', async ({siteNavigation, browserName}, item: string, inputDevice: string) => {
-  await siteNavigation.scrollToItem(item, inputDevice, browserName);
+When('the user scrolls to a {string} using a {string}', async ({siteNavigation}, item: string, inputDevice: string) => {
+  await siteNavigation.scrollToItem(item, inputDevice);
 });
 
 When('the user selects the link {string} using a {string}', async ({siteNavigation, browserName}, linkName: string, inputDevice: string) => {

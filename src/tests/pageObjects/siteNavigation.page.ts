@@ -30,7 +30,6 @@ async goto(page : string = "") {
 //assert navigated to the correct page
 async checkSuccess(baseURL: string, arg1: string) {
     const currentUrl = this.page.url();
-    
     let assertURL: string = baseURL ? baseURL : "https://demo.quartexcollections.com/"
     switch (arg1) {
       case "Home Page":
@@ -50,14 +49,12 @@ async checkSuccess(baseURL: string, arg1: string) {
 
 // navigate to a menu option either at the top level or a sub level using either a mouse or keyboard
 async selectMenuOption(level: string = "", menu: string, inputDevice: string, browserName: string) {
-  console.log("BrowserName = ", browserName)
   const menuLocator = level === "top" ? this.page.getByRole('button', { name: `${menu}` }) : this.page.getByRole('link', { name: menu});
   await this.navigateToAndSelect( menuLocator , inputDevice, browserName);
 }
 
 // Scroll to an item using keyboard or mouse
-  async scrollToItem(item:string , inputDevice: string , browserName: string) {
-    console.log("BrowserName = ", browserName)
+  async scrollToItem(item:string , inputDevice: string) {
     const elementToCheck = this.page.getByText(item);
     let isVisible = false
     if (inputDevice==="keyboard") {
@@ -82,7 +79,6 @@ async getLinkByName(linkName: string) {
 
 // use keyboard or mouse to navigate to an item and click it
 async navigateToAndSelect(itemLocator: Locator, inputDevice: string, browserName: string ) {
-  console.log("BrowserName = ", browserName)
   if (inputDevice==="keyboard" && browserName != "webkit") {     // Tabs do not appear to be working as expected on Webkit (not going through the menu items)
     let focused = false;
     while (!focused) {
