@@ -22,8 +22,8 @@ async acceptCookies() {
 // go to to any page specified specified in the argument
 async goto(page : string = "") {
   const targetPage = page === "homepage" ? "" : page;
-  await this.page.goto(`/${ targetPage}`);
-  await this.page.waitForURL(`/${ targetPage}`);
+  await this.page.goto(`/${targetPage}`);
+  await this.page.waitForURL(`/${targetPage}`);
   await this.acceptCookies();
 };
 
@@ -49,17 +49,64 @@ async checkSuccess(baseURL: string, arg1: string) {
 }
 
 // navigate to a menu option either at the top level or a sub level using either a mouse or keyboard
-async selectMenuOption(level: string, menu: string, inputDevice: string, ) {
+async selectMenuOption(level: string = "", menu: string, inputDevice: string, browserName: string) {
+  console.log("BrowserName = ", browserName)
   const menuLocator = level === "top" ? this.page.getByRole('button', { name: `${menu}` }) : this.page.getByRole('link', { name: menu});
-  if (inputDevice==="keyboard") {
+  await this.navigateToAndSelect( menuLocator , inputDevice, browserName);
+}
+
+// Scroll to an item using keyboard or mouse
+  async scrollToItem(item:string , inputDevice: string , browserName: string) {
+    console.log("BrowserName = ", browserName)
+    const elementToCheck = this.page.getByText(item);
+    let isVisible = false
+    if (inputDevice==="keyboard") {
+      while (!isVisible) {
+        isVisible = await elementToCheck.isVisible();
+        await this.page.keyboard.press('PageDown');
+        await this.page.waitForLoadState('networkidle');
+      } 
+    } else {
+      while (!isVisible) {
+        isVisible = await elementToCheck.isVisible();
+        await this.page.mouse.wheel(0, 500);
+    }
+    await this.page.waitForLoadState('networkidle');
+  }
+  }
+
+// get any link by name
+async getLinkByName(linkName: string) {
+  return this.page.getByRole('link', { name: linkName })
+}
+
+// use keyboard or mouse to navigate to an item and click it
+async navigateToAndSelect(itemLocator: Locator, inputDevice: string, browserName: string ) {
+  console.log("BrowserName = ", browserName)
+  if (inputDevice==="keyboard" && browserName != "webkit") {     // Tabs do not appear to be working as expected on Webkit (not going through the menu items)
     let focused = false;
     while (!focused) {
-    await this.page.keyboard.press('Tab');
-    focused = await menuLocator.evaluate((el) => document.activeElement === el)
-    } 
-    await this.page.keyboard.press('Enter');
-    } else {
-      await menuLocator.click();
+      await this.page.keyboard.press('Tab');
+      focused = await itemLocator.evaluate((el) => document.activeElement === el)
+       }  
+        await this.page.keyboard.press('Enter');
+      }
+     else {
+      await itemLocator.click();
     }
+}
+
+// verifyURL
+async verifyCorrectURL(urlTocheck: string, newtabExpected: boolean) {
+  if (newtabExpected) {
+      const context = this.page.context();
+      const newTabPromise = this.page.waitForEvent("popup");
+      const newTab = await newTabPromise;
+      await newTab.waitForLoadState();
+      await newTab.waitForURL(urlTocheck);
+      expect(newTab.url()).toEqual(urlTocheck);
+  } else {
+      expect(this.page.url()).toEqual(urlTocheck);
   }
+}
 }

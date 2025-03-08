@@ -24,6 +24,9 @@ export default defineConfig({
   // Reporter to use
   reporter: 'html',
 
+  // Each test is given 60 seconds.
+  timeout: 60000,
+
   use: {
     // Base URL to use in actions like `await page.goto('/')`.
     baseURL: 'https://demo.quartexcollections.com/',
@@ -34,15 +37,16 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], screenshot: 'on', video: 'on'},
+      use: { ...devices['Desktop Chrome'], screenshot: 'on', video: 'on'}, 
     },
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'], screenshot: 'only-on-failure', video: 'retain-on-failure'},
+      use: { ...devices['Desktop Firefox'], screenshot: 'only-on-failure'},
     },
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'], deviceScaleFactor: 1, screenshot: 'only-on-failure', video: 'retain-on-failure'},
+      use: { ...devices['Desktop Safari'], deviceScaleFactor:1, screenshot: 'on', video: 'on'},
     },
   ],
 });
+

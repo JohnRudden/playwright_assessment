@@ -27,32 +27,18 @@ When('the open search button is pressed' , async({header}) => {
 
 // Used in feature 2
 
-When('the user selects the {string} level menu option {string} using a {string}', async ({siteNavigation}, level: string, item:string, inputDevice: string) => {
- await siteNavigation.selectMenuOption(level, item, inputDevice);
+When('the user selects the {string} level menu option {string} using a {string}', async ({siteNavigation, browserName}, level: string, item:string, inputDevice: string) => {
+ await siteNavigation.selectMenuOption(level, item, inputDevice, browserName);
 });
 
-When('the user scrolls to a {string} using a {string}', async ({}, arg: string, arg1: string) => {
-  // Step: When the user scrolls to a "<timeline item>" using a "keyboard"
-  // From: src\tests\features\navigateToSpecificLink.feature:9:5
+When('the user scrolls to a {string} using a {string}', async ({siteNavigation, browserName}, item: string, inputDevice: string) => {
+  await siteNavigation.scrollToItem(item, inputDevice, browserName);
 });
 
-
-
-// When('the user navigates to a <timeline item> using a <inputDevice>', async ({}) => {
-//   // Step: When the user navigates to a <timeline item> using a <inputDevice>
-//   // From: src\tests\features\navigateToSpecificLink.feature:10:5
-// });
-
-// When('the user selects the link <link> using a <inputDevice>', async ({}) => {
-//   // Step: And the user selects the link <link> using a <inputDevice>
-//   // From: src\tests\features\navigateToSpecificLink.feature:11:5
-// });
-
-// Then('the correct <web page> is launched in a new tab', async ({}, dataTable: DataTable) => {
-//   // Step: Then the correct <web page> is launched in a new tab
-//   // From: src\tests\features\navigateToSpecificLink.feature:12:5
-// });
-
+When('the user selects the link {string} using a {string}', async ({siteNavigation, browserName}, linkName: string, inputDevice: string) => {
+  const link = await siteNavigation.getLinkByName(linkName);
+  await siteNavigation.navigateToAndSelect(link, inputDevice, browserName);
+});
 
 //  **** THEN steps ****
 
@@ -76,3 +62,6 @@ Then('an alert message appears with the text {string}', async ({toastMessage}, m
  await toastMessage.validateMessage(msg);
 });
 
+Then('the correct web page {string} is launched in a new tab', async ({siteNavigation}, webPage: string, newtabExpected: boolean = true) => {
+ await siteNavigation.verifyCorrectURL(webPage, newtabExpected);
+});

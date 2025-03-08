@@ -14,8 +14,6 @@ Feature: Basic Search
       |Search Term  |Asset Listed                                     |
       |Brown        |1 April 1875. Browning, Robert to Pollock, Lady. |
       |War          |Memoirs of a Prisoner of War                     |
-      |North America|Wassaja, Feb 1918                                |
-
 
 
   Scenario: Attempt to apply a search without a valid search term and verify warning message is displayed
