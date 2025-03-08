@@ -40,6 +40,7 @@ As the site can use both keyboard or mouse I want to include that as an option f
 The aim is to use the "Tab" and "Enter" keys to navigate down to the menu item (evaluating when each item is in focus) and the selecting the correct option
 Of course a simpler method would have been to go directly to the Timeline content block URL but that would not test the UI
 
-> [!NOTE] **Keyboard tabbing** not working in webkit for the menu items - need to investigate
+> [!NOTE]
+> Tabs not working correctly in webkit for the menu items - need to investigate
 
 # Feature: Browsing by collection
