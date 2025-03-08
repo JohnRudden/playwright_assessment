@@ -41,7 +41,7 @@ export default defineConfig({
     },
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'], screenshot: 'only-on-failure'},
+      use: { ...devices['Desktop Firefox'], screenshot: 'on', video: 'on'},
     },
     {
       name: 'webkit',

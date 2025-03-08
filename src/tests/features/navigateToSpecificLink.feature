@@ -12,7 +12,7 @@ Feature: Navigate to a specific link from a Timeline Content Block
       Examples:
       |Menu          |Menu Option                   |inputDevice|Timeline Item|Link                           |Web Page is Launched                                                                                                      |
       |Discovery Aids|The Brownings: A Brief History|keyboard   |1845         |one of their first love letters|https://demo.quartexcollections.com/Documents/Detail/10-january-1845.-browning-robert-to-browning-elizabeth-barrett./36113|
- #     |Discovery Aids|The Brownings: A Brief History|mouse      |1845         |one of their first love letters|https://demo.quartexcollections.com/Documents/Detail/10-january-1845.-browning-robert-to-browning-elizabeth-barrett./36113|
+      |Discovery Aids|The Brownings: A Brief History|mouse      |1845         |one of their first love letters|https://demo.quartexcollections.com/Documents/Detail/10-january-1845.-browning-robert-to-browning-elizabeth-barrett./36113|
 
 
 
