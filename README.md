@@ -9,7 +9,7 @@
 
 1. Will be using Imperative style BDD
 2. Will use localling running browsers - chromium, firefox and webkit
-3. Config will be required for both desktop and mobile simulated devices (time permitting)
+3. Config will be required for both desktop ~~and mobile simulated devices (time permitting)~~
 4. Will use page objects as part of fixtures
 5. Test steps will be as generic as possible if appropiate to aid maintainaility and reuse
 6. It would be possible to use 'decorators' for the 'Given, When, Then' steps in the page object but to simplify and aid readability will use separates steps file instead
