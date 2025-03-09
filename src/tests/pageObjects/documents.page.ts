@@ -18,7 +18,8 @@ export default class Documents {
     this.listItem = this.mediaListContainer.getByRole('list');
 }
 
-// actions
+// **** actions ****
+
 
 async getPageNumber(location : string) {
   const locatorToUse = location === "top" ? this.pageNumbersTop : this.pageNumbersBottom
@@ -27,7 +28,6 @@ async getPageNumber(location : string) {
 
 async getAllListItems() {
   const listItems = await this.listItem.all();
-  console.log(listItems.length)
   return listItems;
 }
 
@@ -41,6 +41,7 @@ async validateSearchResults(criteria: string) {
   await expect(locateCriteriaItem).toBeVisible();
   expect(await locateCriteriaItem.textContent()).toEqual(criteria)
 }
+
 
 async verifyDisplayedPageNumber(checkValue: (string | number)) {
   const pageNumberToCheck = typeof checkValue === 'string' ? parseInt(checkValue) : checkValue;
