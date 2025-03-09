@@ -9,7 +9,7 @@
 
 1. Will be using Imperative style BDD
 2. Will use localling running browsers - chromium, firefox and webkit
-3. Config will be required for both desktop ~~and mobile simulated devices (time permitting)~~
+3. Config will be required for both desktop ~~and mobile simulated devices (time permitting)~~ (only desktop achieved within time frame)
 4. Will use page objects as part of fixtures
 5. Test steps will be as generic as possible if appropiate to aid maintainaility and reuse
 6. It would be possible to use 'decorators' for the 'Given, When, Then' steps in the page object but to simplify and aid readability will use separates steps file instead
@@ -27,6 +27,7 @@
 12. An assumtion has been made, for the naviation check success assertion that most of the pages will have a H1 heading for the partiular topic (except for Home page)
 13. Assuming tools like Prettier and linting are out of scope
 14. The steps are currently contains in one file (Given, When, Then) - would consider splitting these into separate files for clarity but will leave for now
+15. Page Object Methods are part of Class but not instance of the class via constructor (may change this)
 
 # Feature: Basic Search notes
 
@@ -44,3 +45,5 @@ Of course a simpler method would have been to go directly to the Timeline conten
 > Tabs not working correctly in webkit for the menu items - need to investigate
 
 # Feature: Browsing by collection
+
+Reused the site navigation pageobject fucntions using keyboard etc. Add some new ones in the exploreTheCollections page object. The odea being will tab to (or click on) a letter only if it is enabled otherwise will fail the test.
