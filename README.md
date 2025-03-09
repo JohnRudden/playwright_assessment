@@ -5,7 +5,7 @@
 **Playwright-BDD** - https://vitalets.github.io/playwright-bdd/#/ <br>
 **Playwright Test** - https://github.com/microsoft/playwright <br>
 
-## Instructions installation and running the tests
+## Instructions - Installation and running the tests
 
 ### 1. Clone the repository to a folder on your local machine
 
