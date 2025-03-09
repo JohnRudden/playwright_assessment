@@ -81,8 +81,8 @@ Reused the site navigation pageobject functions for using keyboard etc. Added so
 
 ## Final thoughts
 
-I thouroughly enjoyed the experience of creating these tests with Playwright-BDD and time permitting I would have improved on the test steps making them even more generic.
+I really enjoyed creating these tests using Playwright-BDD. Given more time, I would have refined the test steps further to make them even more reusable and generic.
 
-I used the 3 basic local browser configs with video and snapshot on.
+For execution, I used the three basic local browser configurations with video and snapshot enabled.
 
-I would have liked to have included some mobile tests as this would have changed the structure of some of the methods and steps but I ran out of time. The idea being the test run would automatically determine the project/platform and conditionally use different selectors as appropiate. It would also be possible to tag individual test as @mobile_only or @desktop_only
+I had hoped to include mobile tests, as they would have influenced the structure of certain methods and steps. The goal was for the test run to automatically detect the project or platform and adapt selectors accordingly. Additionally, it would have been possible to tag specific tests as @mobile_only or @desktop_only, but unfortunately, I ran out of time.

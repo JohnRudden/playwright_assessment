@@ -73,6 +73,6 @@ Then('the page is scrolled to display all collections with the chosen {string}',
   await exploreTheCollections.validateLetterHeadingInViewport(letter);
 });
 
-Then('the expect {string} is displayed', async ({exploreTheCollections}, collection: string) => {
+Then('the expected {string} is displayed', async ({exploreTheCollections}, collection: string) => {
   await exploreTheCollections.validateCollectionInViewport(collection);
 });

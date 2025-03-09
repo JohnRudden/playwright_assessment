@@ -7,7 +7,7 @@ Feature: Browsing by Collection
     When the user selects the menu option "<Menu>" using a "<inputDevice>"
     And the user selects a letter "<Letter>" to browse using a "<inputDevice>"
     Then the page is scrolled to display all collections with the chosen "<Letter>"
-    And the expect "<Collection>" is displayed
+    And the expected "<Collection>" is displayed
     Examples:
       |Menu                     | inputDevice   | Letter  | Collection   |
       |Explore the Collections  | keyboard      | W       |War & Conflict|
