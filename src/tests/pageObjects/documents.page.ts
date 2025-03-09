@@ -42,7 +42,6 @@ async validateSearchResults(criteria: string) {
   expect(await locateCriteriaItem.textContent()).toEqual(criteria)
 }
 
-
 async verifyDisplayedPageNumber(checkValue: (string | number)) {
   const pageNumberToCheck = typeof checkValue === 'string' ? parseInt(checkValue) : checkValue;
   const actualPageNumberDisplayed = parseInt(await this.getPageNumber('top'));

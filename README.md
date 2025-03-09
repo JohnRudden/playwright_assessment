@@ -4,6 +4,7 @@
 
 **Playwright-BDD** - https://vitalets.github.io/playwright-bdd/#/ <br>
 **Playwright Test** - https://github.com/microsoft/playwright <br>
+**http server** - https://www.npmjs.com/package/http-server <br>
 
 ## Instructions - Installation and running the tests
 
@@ -58,7 +59,8 @@
 
 1.  Focused on the search box in the header, but a reusable search function could be implemented. An option to specify either a 'header' or 'main' page search could be included,
     allowing both search boxes to be checked with minimal code effort.
-2.  Mocking of results using playwright api mocking feature would be potentially useful
+2.  Mocking of results using playwright api mocking feature would be potentially useful as replying on data which may potentially change??
+3.  I added an extra test here to check the error message when no text is entered to search for but the apply search button is pressed
 
 # Feature: Navigate to a specific link notes
 
@@ -67,11 +69,11 @@ The aim is to use the "Tab" and "Enter" keys to navigate down to the menu item (
 Of course a simpler method would have been to go directly to the Timeline content block URL but that would not test the UI
 
 > [!NOTE]
-> Tabs not working correctly in webkit for the menu items - need to investigate
+> Tabs not working correctly in webkit for the menu items - need to investigate (bypassed the tabbing for webkit for now)
 
 # Feature: Browsing by collection
 
-Reused the site navigation pageobject functions using keyboard etc. Add some new ones in the exploreTheCollections page object. The odea being will tab to (or click on) a letter only if it is enabled otherwise will fail the test.
+Reused the site navigation pageobject functions for using keyboard etc. Added some new ones in the exploreTheCollections page object. The **selectLetterIfEnabled** function will fail if the test specifies to browse by a letter which has no associated collection, otherwise it will tab to (or click on) a letter and select it.
 
 ## Diagram of stucture of tests
 
