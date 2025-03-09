@@ -71,4 +71,8 @@ Of course a simpler method would have been to go directly to the Timeline conten
 
 # Feature: Browsing by collection
 
-Reused the site navigation pageobject fucntions using keyboard etc. Add some new ones in the exploreTheCollections page object. The odea being will tab to (or click on) a letter only if it is enabled otherwise will fail the test.
+Reused the site navigation pageobject functions using keyboard etc. Add some new ones in the exploreTheCollections page object. The odea being will tab to (or click on) a letter only if it is enabled otherwise will fail the test.
+
+## Diagram of stucture of tests
+
+![alt text](structure.jpg)
