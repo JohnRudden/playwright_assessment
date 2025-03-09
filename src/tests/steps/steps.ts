@@ -39,7 +39,6 @@ When('the user selects the link {string} using a {string}', async ({siteNavigati
 
 When('the user selects a letter {string} to browse using a {string}', async ({siteNavigation, exploreTheCollections, browserName, page}, letter: string, inputDevice) => {
   const sectionLocator =  exploreTheCollections.selectLetterIfEnabled(letter);
-  console.log(sectionLocator)
   await siteNavigation.navigateToAndSelect(await sectionLocator, inputDevice, browserName);
 });
 
