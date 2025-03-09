@@ -5,6 +5,31 @@
 **Playwright-BDD** - https://vitalets.github.io/playwright-bdd/#/ <br>
 **Playwright Test** - https://github.com/microsoft/playwright <br>
 
+## Instructions installation and running the tests
+
+### 1. Clone the repository to a folder on your local machine
+
+    git clone https://github.com/JohnRudden/playwright_assessment.git
+
+### 2. Install dependencies
+
+    npm install
+
+### 3. Install Playwright browsers - Chromium, Firefox and Webkit
+
+    npx playwright install
+
+### 4. Run the complete set of tests (note : workers have been set to 4 currently - you can change this in package.json under the 'test' script command)
+
+    npm run test
+
+### 5. View the test report
+
+    If you have used the 'npm run test' command in the previous instruction, then the cucumber report will open automatically once the test has finished.
+    Otherwise you can enter the following command from the cli (post test run) :
+
+    npx http-server ./cucumber-report -c-1 -a localhost -o index.html
+
 ## Initial assumptions -
 
 1. Will be using Imperative style BDD
