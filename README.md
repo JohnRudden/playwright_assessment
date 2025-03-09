@@ -76,3 +76,11 @@ Reused the site navigation pageobject functions using keyboard etc. Add some new
 ## Diagram of stucture of tests
 
 ![alt text](structure.jpg)
+
+## Final thoughts
+
+I thouroughly enjoyed the experience of creating these tests with Playwright-BDD and time permitting I would have improved on the test steps making them even more generic.
+
+I used the 3 basic local browser configs with video and snapshot on.
+
+I would have liked to have included some mobile tests as this would have changed the structure of some of the methods and steps but I ran out of time. The idea being the test run would automatically determine the project/platform and conditionally use different selectors as appropiate. It would also be possible to tag individual test as @mobile_only or @desktop_only
