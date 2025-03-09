@@ -3,12 +3,14 @@ import SiteNavigation  from '../pageObjects/siteNavigation.page.ts';
 import Header from '../pageObjects/header.page.ts';
 import Documents from '../pageObjects/documents.page.ts';
 import ToastMessage from '../pageObjects/toastMessage.page.ts'; 
+import ExploreTheCollections from '../pageObjects/exploreTheCollections.page.ts'
 
 type pageObjects = {
   siteNavigation: SiteNavigation,
   header: Header,
   documents: Documents,
   toastMessage: ToastMessage,
+  exploreTheCollections: ExploreTheCollections
 }
 
 export const test = base.extend<pageObjects>({
@@ -23,6 +25,9 @@ export const test = base.extend<pageObjects>({
   },
   toastMessage: async({page}, use) => {
     await use(new ToastMessage(page))
+  },
+  exploreTheCollections: async({page}, use) => {
+    await use(new ExploreTheCollections(page))
   }
 });
 

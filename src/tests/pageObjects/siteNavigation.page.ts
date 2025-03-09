@@ -49,7 +49,7 @@ async checkSuccess(baseURL: string, arg1: string) {
   }
 }
 
-// **** Vavigate to a menu option in the Main Site Menu using either a mouse or keyboard ****
+// **** Navigate to a menu option in the Main Site Menu using either a mouse or keyboard ****
 async selectMenuOption(menu: string, inputDevice: string, browserName: string) {
   const menuLocator = menu === "Discovery Aids" ? this.siteMainMenu.getByRole('button', { name: `${menu}` }) : this.siteMainMenu.getByRole('link', { name: menu});
   await this.navigateToAndSelect( menuLocator , inputDevice, browserName);

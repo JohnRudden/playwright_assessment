@@ -1,3 +1,4 @@
+import { setUncaughtExceptionCaptureCallback } from 'node:process';
 import { Given, When, Then } from '../fixtures/fixtures';
 
 
@@ -36,6 +37,12 @@ When('the user selects the link {string} using a {string}', async ({siteNavigati
   await siteNavigation.navigateToAndSelect(link, inputDevice, browserName);
 });
 
+When('the user selects a letter {string} to browse using a {string}', async ({siteNavigation, exploreTheCollections, browserName, page}, letter: string, inputDevice) => {
+  const sectionLocator =  exploreTheCollections.selectLetterIfEnabled(letter);
+  console.log(sectionLocator)
+  await siteNavigation.navigateToAndSelect(await sectionLocator, inputDevice, browserName);
+});
+
 
 //  **** THEN steps ****
 
@@ -61,4 +68,12 @@ Then('an alert message appears with the text {string}', async ({toastMessage}, m
 
 Then('the correct web page {string} is launched in a new tab', async ({siteNavigation}, webPage: string, newtabExpected: boolean = true) => {
  await siteNavigation.verifyCorrectURL(webPage, newtabExpected);
+});
+
+Then('the page is scrolled to display all collections with the chosen {string}', async ({exploreTheCollections}, letter: string) => {
+  await exploreTheCollections.validateLetterHeadingInViewport(letter);
+});
+
+Then('the expect {string} is displayed', async ({exploreTheCollections}, collection: string) => {
+  await exploreTheCollections.validateCollectionInViewport(collection);
 });
