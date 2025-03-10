@@ -59,7 +59,7 @@
 
 1.  Focused on the search box in the header, but a reusable search function could be implemented. An option to specify either a 'header' or 'main' page search could be included,
     allowing both search boxes to be checked with minimal code effort.
-2.  Mocking of results using playwright api mocking feature would be potentially useful as replying on data which may potentially change??
+2.  Mocking of results using playwright api mocking feature would be potentially useful as relying on data which may potentially change??
 3.  I added an extra test here to check the error message when no text is entered to search for but the apply search button is pressed
 
 # Feature: Navigate to a specific link notes
