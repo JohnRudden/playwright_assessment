@@ -1,4 +1,4 @@
-import { setUncaughtExceptionCaptureCallback } from 'node:process';
+
 import { Given, When, Then } from '../fixtures/fixtures';
 
 
